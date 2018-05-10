@@ -16,5 +16,19 @@ namespace MegaDesk3
         {
             InitializeComponent();
         }
+
+        private void closeAddQuoteButton_Click(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
+            Close();
+        }
+
+        private void saveNewQuoteButton_Click(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
+            Close();
+        }
     }
 }

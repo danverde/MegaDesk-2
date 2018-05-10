@@ -33,7 +33,7 @@
             this.exit = new System.Windows.Forms.Button();
             this.searchQuotes = new System.Windows.Forms.Button();
             this.viewQuote = new System.Windows.Forms.Button();
-            this.newQuote = new System.Windows.Forms.Button();
+            this.newQuoteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,15 +77,16 @@
             this.viewQuote.Text = "View Quotes";
             this.viewQuote.UseVisualStyleBackColor = true;
             // 
-            // newQuote
+            // newQuoteButton
             // 
-            this.newQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newQuote.Location = new System.Drawing.Point(44, 47);
-            this.newQuote.Name = "newQuote";
-            this.newQuote.Size = new System.Drawing.Size(243, 56);
-            this.newQuote.TabIndex = 5;
-            this.newQuote.Text = "Add New Quote";
-            this.newQuote.UseVisualStyleBackColor = true;
+            this.newQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newQuoteButton.Location = new System.Drawing.Point(44, 47);
+            this.newQuoteButton.Name = "newQuoteButton";
+            this.newQuoteButton.Size = new System.Drawing.Size(243, 56);
+            this.newQuoteButton.TabIndex = 5;
+            this.newQuoteButton.Text = "Add New Quote";
+            this.newQuoteButton.UseVisualStyleBackColor = true;
+            this.newQuoteButton.Click += new System.EventHandler(this.newQuoteButton_Click);
             // 
             // MainMenu
             // 
@@ -96,7 +97,7 @@
             this.Controls.Add(this.exit);
             this.Controls.Add(this.searchQuotes);
             this.Controls.Add(this.viewQuote);
-            this.Controls.Add(this.newQuote);
+            this.Controls.Add(this.newQuoteButton);
             this.Name = "MainMenu";
             this.Text = "Main Menu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -110,7 +111,7 @@
         private System.Windows.Forms.Button exit;
         private System.Windows.Forms.Button searchQuotes;
         private System.Windows.Forms.Button viewQuote;
-        private System.Windows.Forms.Button newQuote;
+        private System.Windows.Forms.Button newQuoteButton;
     }
 }
 

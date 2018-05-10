@@ -8,5 +8,19 @@ namespace MegaDesk3
 {
     class DeskQuote
     {
+        public Desk Desk { get; set; }
+
+        public int RushDays { get; set; }
+
+        public decimal PriceQuote { get; set; }
+
+        public string CustomerName { get; set; }
+
+        public DateTime QuoteDate { get; set; }
+
+        private int CalcQuote()
+        {
+            return 0;
+        }
     }
 }
