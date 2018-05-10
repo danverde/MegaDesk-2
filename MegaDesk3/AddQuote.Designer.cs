@@ -41,9 +41,12 @@
             this.MaterialInput = new System.Windows.Forms.ComboBox();
             this.RushDaysLabel = new System.Windows.Forms.Label();
             this.RushOrderInput = new System.Windows.Forms.ComboBox();
+            this.NumDrawersLabel = new System.Windows.Forms.Label();
+            this.NumDrawersInput = new System.Windows.Forms.NumericUpDown();
             this.DimensionsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DepthInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumDrawersInput)).BeginInit();
             this.SuspendLayout();
             // 
             // closeAddQuoteButton
@@ -52,7 +55,7 @@
             this.closeAddQuoteButton.Location = new System.Drawing.Point(274, 277);
             this.closeAddQuoteButton.Name = "closeAddQuoteButton";
             this.closeAddQuoteButton.Size = new System.Drawing.Size(100, 40);
-            this.closeAddQuoteButton.TabIndex = 7;
+            this.closeAddQuoteButton.TabIndex = 9;
             this.closeAddQuoteButton.Text = "Cancel";
             this.closeAddQuoteButton.UseVisualStyleBackColor = true;
             this.closeAddQuoteButton.Click += new System.EventHandler(this.closeAddQuoteButton_Click);
@@ -196,7 +199,7 @@
             // 
             this.RushDaysLabel.AutoSize = true;
             this.RushDaysLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RushDaysLabel.Location = new System.Drawing.Point(260, 165);
+            this.RushDaysLabel.Location = new System.Drawing.Point(270, 165);
             this.RushDaysLabel.Name = "RushDaysLabel";
             this.RushDaysLabel.Size = new System.Drawing.Size(108, 24);
             this.RushDaysLabel.TabIndex = 17;
@@ -212,16 +215,47 @@
             "3",
             "5",
             "7"});
-            this.RushOrderInput.Location = new System.Drawing.Point(380, 160);
+            this.RushOrderInput.Location = new System.Drawing.Point(384, 162);
             this.RushOrderInput.Name = "RushOrderInput";
             this.RushOrderInput.Size = new System.Drawing.Size(121, 32);
             this.RushOrderInput.TabIndex = 6;
+            // 
+            // NumDrawersLabel
+            // 
+            this.NumDrawersLabel.AutoSize = true;
+            this.NumDrawersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumDrawersLabel.Location = new System.Drawing.Point(270, 214);
+            this.NumDrawersLabel.Name = "NumDrawersLabel";
+            this.NumDrawersLabel.Size = new System.Drawing.Size(79, 24);
+            this.NumDrawersLabel.TabIndex = 18;
+            this.NumDrawersLabel.Text = "Drawers";
+            this.NumDrawersLabel.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // NumDrawersInput
+            // 
+            this.NumDrawersInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumDrawersInput.Location = new System.Drawing.Point(428, 214);
+            this.NumDrawersInput.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.NumDrawersInput.Name = "NumDrawersInput";
+            this.NumDrawersInput.Size = new System.Drawing.Size(77, 29);
+            this.NumDrawersInput.TabIndex = 7;
+            this.NumDrawersInput.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
             // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 366);
+            this.ClientSize = new System.Drawing.Size(554, 366);
+            this.Controls.Add(this.NumDrawersInput);
+            this.Controls.Add(this.NumDrawersLabel);
             this.Controls.Add(this.RushOrderInput);
             this.Controls.Add(this.RushDaysLabel);
             this.Controls.Add(this.MaterialInput);
@@ -239,6 +273,7 @@
             this.DimensionsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DepthInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumDrawersInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,5 +294,7 @@
         private System.Windows.Forms.NumericUpDown DepthInput;
         private System.Windows.Forms.Label RushDaysLabel;
         private System.Windows.Forms.ComboBox RushOrderInput;
+        private System.Windows.Forms.Label NumDrawersLabel;
+        private System.Windows.Forms.NumericUpDown NumDrawersInput;
     }
 }

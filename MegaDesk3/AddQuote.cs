@@ -65,6 +65,12 @@ namespace MegaDesk3
         {
             MainMenu mainMenu = (MainMenu)Tag;
             mainMenu.Show();
+            mainMenu.Show();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
