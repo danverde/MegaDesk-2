@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.exit = new System.Windows.Forms.Button();
-            this.searchQuotes = new System.Windows.Forms.Button();
-            this.viewQuote = new System.Windows.Forms.Button();
+            this.closeMainMenuButon = new System.Windows.Forms.Button();
+            this.searchQuotesButton = new System.Windows.Forms.Button();
+            this.viewQuotesButton = new System.Windows.Forms.Button();
             this.newQuoteButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -47,35 +47,38 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // exit
+            // closeMainMenuButon
             // 
-            this.exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exit.Location = new System.Drawing.Point(44, 307);
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(243, 56);
-            this.exit.TabIndex = 8;
-            this.exit.Text = "Exit";
-            this.exit.UseVisualStyleBackColor = true;
+            this.closeMainMenuButon.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeMainMenuButon.Location = new System.Drawing.Point(44, 307);
+            this.closeMainMenuButon.Name = "closeMainMenuButon";
+            this.closeMainMenuButon.Size = new System.Drawing.Size(243, 56);
+            this.closeMainMenuButon.TabIndex = 8;
+            this.closeMainMenuButon.Text = "Exit";
+            this.closeMainMenuButon.UseVisualStyleBackColor = true;
+            this.closeMainMenuButon.Click += new System.EventHandler(this.CloseMainMenuButton_Click);
             // 
-            // searchQuotes
+            // searchQuotesButton
             // 
-            this.searchQuotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchQuotes.Location = new System.Drawing.Point(44, 217);
-            this.searchQuotes.Name = "searchQuotes";
-            this.searchQuotes.Size = new System.Drawing.Size(243, 56);
-            this.searchQuotes.TabIndex = 7;
-            this.searchQuotes.Text = "Search Quotes";
-            this.searchQuotes.UseVisualStyleBackColor = true;
+            this.searchQuotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchQuotesButton.Location = new System.Drawing.Point(44, 217);
+            this.searchQuotesButton.Name = "searchQuotesButton";
+            this.searchQuotesButton.Size = new System.Drawing.Size(243, 56);
+            this.searchQuotesButton.TabIndex = 7;
+            this.searchQuotesButton.Text = "Search Quotes";
+            this.searchQuotesButton.UseVisualStyleBackColor = true;
+            this.searchQuotesButton.Click += new System.EventHandler(this.SearchQuotesButton_Click);
             // 
-            // viewQuote
+            // viewQuotesButton
             // 
-            this.viewQuote.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewQuote.Location = new System.Drawing.Point(44, 131);
-            this.viewQuote.Name = "viewQuote";
-            this.viewQuote.Size = new System.Drawing.Size(243, 56);
-            this.viewQuote.TabIndex = 6;
-            this.viewQuote.Text = "View Quotes";
-            this.viewQuote.UseVisualStyleBackColor = true;
+            this.viewQuotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewQuotesButton.Location = new System.Drawing.Point(44, 131);
+            this.viewQuotesButton.Name = "viewQuotesButton";
+            this.viewQuotesButton.Size = new System.Drawing.Size(243, 56);
+            this.viewQuotesButton.TabIndex = 6;
+            this.viewQuotesButton.Text = "View Quotes";
+            this.viewQuotesButton.UseVisualStyleBackColor = true;
+            this.viewQuotesButton.Click += new System.EventHandler(this.ViewQuotesButton_Click);
             // 
             // newQuoteButton
             // 
@@ -94,9 +97,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.exit);
-            this.Controls.Add(this.searchQuotes);
-            this.Controls.Add(this.viewQuote);
+            this.Controls.Add(this.closeMainMenuButon);
+            this.Controls.Add(this.searchQuotesButton);
+            this.Controls.Add(this.viewQuotesButton);
             this.Controls.Add(this.newQuoteButton);
             this.Name = "MainMenu";
             this.Text = "Main Menu";
@@ -108,9 +111,9 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button exit;
-        private System.Windows.Forms.Button searchQuotes;
-        private System.Windows.Forms.Button viewQuote;
+        private System.Windows.Forms.Button closeMainMenuButon;
+        private System.Windows.Forms.Button searchQuotesButton;
+        private System.Windows.Forms.Button viewQuotesButton;
         private System.Windows.Forms.Button newQuoteButton;
     }
 }

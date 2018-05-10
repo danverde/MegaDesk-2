@@ -16,5 +16,12 @@ namespace MegaDesk3
         {
             InitializeComponent();
         }
+
+        private void CloseViewAllQuotesButton_Click(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
+            Close();
+        }
     }
 }
