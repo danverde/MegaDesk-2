@@ -33,17 +33,17 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.customerNameInput = new System.Windows.Forms.TextBox();
             this.DimensionsGroup = new System.Windows.Forms.GroupBox();
+            this.DepthInput = new System.Windows.Forms.NumericUpDown();
+            this.DepthLabel = new System.Windows.Forms.Label();
+            this.WidthLabel = new System.Windows.Forms.Label();
+            this.WidthInput = new System.Windows.Forms.NumericUpDown();
             this.MaterialLabel = new System.Windows.Forms.Label();
             this.MaterialInput = new System.Windows.Forms.ComboBox();
-            this.WidthInput = new System.Windows.Forms.NumericUpDown();
-            this.WidthLabel = new System.Windows.Forms.Label();
-            this.DepthLabel = new System.Windows.Forms.Label();
-            this.DepthInput = new System.Windows.Forms.NumericUpDown();
             this.RushDaysLabel = new System.Windows.Forms.Label();
             this.RushOrderInput = new System.Windows.Forms.ComboBox();
             this.DimensionsGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WidthInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DepthInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WidthInput)).BeginInit();
             this.SuspendLayout();
             // 
             // closeAddQuoteButton
@@ -102,6 +102,70 @@
             this.DimensionsGroup.TabStop = false;
             this.DimensionsGroup.Text = "Dimensions";
             // 
+            // DepthInput
+            // 
+            this.DepthInput.Location = new System.Drawing.Point(104, 91);
+            this.DepthInput.Maximum = new decimal(new int[] {
+            48,
+            0,
+            0,
+            0});
+            this.DepthInput.Minimum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.DepthInput.Name = "DepthInput";
+            this.DepthInput.Size = new System.Drawing.Size(77, 29);
+            this.DepthInput.TabIndex = 5;
+            this.DepthInput.Value = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            // 
+            // DepthLabel
+            // 
+            this.DepthLabel.AutoSize = true;
+            this.DepthLabel.Location = new System.Drawing.Point(12, 96);
+            this.DepthLabel.Name = "DepthLabel";
+            this.DepthLabel.Size = new System.Drawing.Size(60, 24);
+            this.DepthLabel.TabIndex = 2;
+            this.DepthLabel.Text = "Depth";
+            this.DepthLabel.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // WidthLabel
+            // 
+            this.WidthLabel.AutoSize = true;
+            this.WidthLabel.Location = new System.Drawing.Point(10, 43);
+            this.WidthLabel.Name = "WidthLabel";
+            this.WidthLabel.Size = new System.Drawing.Size(58, 24);
+            this.WidthLabel.TabIndex = 1;
+            this.WidthLabel.Text = "Width";
+            // 
+            // WidthInput
+            // 
+            this.WidthInput.Location = new System.Drawing.Point(104, 38);
+            this.WidthInput.Maximum = new decimal(new int[] {
+            96,
+            0,
+            0,
+            0});
+            this.WidthInput.Minimum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.WidthInput.Name = "WidthInput";
+            this.WidthInput.Size = new System.Drawing.Size(77, 29);
+            this.WidthInput.TabIndex = 4;
+            this.WidthInput.Value = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.WidthInput.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // MaterialLabel
             // 
             this.MaterialLabel.AutoSize = true;
@@ -127,70 +191,6 @@
             this.MaterialInput.Name = "MaterialInput";
             this.MaterialInput.Size = new System.Drawing.Size(228, 32);
             this.MaterialInput.TabIndex = 2;
-            // 
-            // WidthInput
-            // 
-            this.WidthInput.Location = new System.Drawing.Point(104, 38);
-            this.WidthInput.Maximum = new decimal(new int[] {
-            96,
-            0,
-            0,
-            0});
-            this.WidthInput.Minimum = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
-            this.WidthInput.Name = "WidthInput";
-            this.WidthInput.Size = new System.Drawing.Size(77, 29);
-            this.WidthInput.TabIndex = 4;
-            this.WidthInput.Value = new decimal(new int[] {
-            24,
-            0,
-            0,
-            0});
-            this.WidthInput.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // WidthLabel
-            // 
-            this.WidthLabel.AutoSize = true;
-            this.WidthLabel.Location = new System.Drawing.Point(10, 43);
-            this.WidthLabel.Name = "WidthLabel";
-            this.WidthLabel.Size = new System.Drawing.Size(58, 24);
-            this.WidthLabel.TabIndex = 1;
-            this.WidthLabel.Text = "Width";
-            // 
-            // DepthLabel
-            // 
-            this.DepthLabel.AutoSize = true;
-            this.DepthLabel.Location = new System.Drawing.Point(12, 96);
-            this.DepthLabel.Name = "DepthLabel";
-            this.DepthLabel.Size = new System.Drawing.Size(60, 24);
-            this.DepthLabel.TabIndex = 2;
-            this.DepthLabel.Text = "Depth";
-            this.DepthLabel.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // DepthInput
-            // 
-            this.DepthInput.Location = new System.Drawing.Point(104, 91);
-            this.DepthInput.Maximum = new decimal(new int[] {
-            48,
-            0,
-            0,
-            0});
-            this.DepthInput.Minimum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.DepthInput.Name = "DepthInput";
-            this.DepthInput.Size = new System.Drawing.Size(77, 29);
-            this.DepthInput.TabIndex = 5;
-            this.DepthInput.Value = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
             // 
             // RushDaysLabel
             // 
@@ -233,11 +233,12 @@
             this.Controls.Add(this.closeAddQuoteButton);
             this.Name = "AddQuote";
             this.Text = "Add Quote";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
             this.Load += new System.EventHandler(this.AddQuote_Load);
             this.DimensionsGroup.ResumeLayout(false);
             this.DimensionsGroup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WidthInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DepthInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WidthInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

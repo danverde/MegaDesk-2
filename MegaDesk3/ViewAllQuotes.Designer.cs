@@ -34,7 +34,7 @@
             // CloseViewAllQuotesButton
             // 
             this.CloseViewAllQuotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseViewAllQuotesButton.Location = new System.Drawing.Point(470, 363);
+            this.CloseViewAllQuotesButton.Location = new System.Drawing.Point(688, 398);
             this.CloseViewAllQuotesButton.Name = "CloseViewAllQuotesButton";
             this.CloseViewAllQuotesButton.Size = new System.Drawing.Size(100, 40);
             this.CloseViewAllQuotesButton.TabIndex = 10;
@@ -50,6 +50,7 @@
             this.Controls.Add(this.CloseViewAllQuotesButton);
             this.Name = "ViewAllQuotes";
             this.Text = "View Quotes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ViewAllQuotes_FormClosed);
             this.ResumeLayout(false);
 
         }

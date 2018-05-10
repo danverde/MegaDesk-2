@@ -23,5 +23,11 @@ namespace MegaDesk3
             mainMenu.Show();
             Close();
         }
+
+        private void SearchQuotes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
+        }
     }
 }

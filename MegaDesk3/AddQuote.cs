@@ -60,5 +60,11 @@ namespace MegaDesk3
         {
 
         }
+
+        private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)Tag;
+            mainMenu.Show();
+        }
     }
 }
