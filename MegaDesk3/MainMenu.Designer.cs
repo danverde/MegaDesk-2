@@ -41,7 +41,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Location = new System.Drawing.Point(385, 47);
+            this.pictureBox1.Location = new System.Drawing.Point(312, 27);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(364, 316);
             this.pictureBox1.TabIndex = 9;
@@ -49,10 +49,10 @@
             // 
             // closeMainMenuButon
             // 
-            this.closeMainMenuButon.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeMainMenuButon.Location = new System.Drawing.Point(44, 307);
+            this.closeMainMenuButon.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeMainMenuButon.Location = new System.Drawing.Point(57, 287);
             this.closeMainMenuButon.Name = "closeMainMenuButon";
-            this.closeMainMenuButon.Size = new System.Drawing.Size(243, 56);
+            this.closeMainMenuButon.Size = new System.Drawing.Size(200, 50);
             this.closeMainMenuButon.TabIndex = 8;
             this.closeMainMenuButon.Text = "Exit";
             this.closeMainMenuButon.UseVisualStyleBackColor = true;
@@ -60,10 +60,10 @@
             // 
             // searchQuotesButton
             // 
-            this.searchQuotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchQuotesButton.Location = new System.Drawing.Point(44, 217);
+            this.searchQuotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchQuotesButton.Location = new System.Drawing.Point(57, 197);
             this.searchQuotesButton.Name = "searchQuotesButton";
-            this.searchQuotesButton.Size = new System.Drawing.Size(243, 56);
+            this.searchQuotesButton.Size = new System.Drawing.Size(200, 50);
             this.searchQuotesButton.TabIndex = 7;
             this.searchQuotesButton.Text = "Search Quotes";
             this.searchQuotesButton.UseVisualStyleBackColor = true;
@@ -71,10 +71,10 @@
             // 
             // viewQuotesButton
             // 
-            this.viewQuotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewQuotesButton.Location = new System.Drawing.Point(44, 131);
+            this.viewQuotesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewQuotesButton.Location = new System.Drawing.Point(57, 111);
             this.viewQuotesButton.Name = "viewQuotesButton";
-            this.viewQuotesButton.Size = new System.Drawing.Size(243, 56);
+            this.viewQuotesButton.Size = new System.Drawing.Size(200, 50);
             this.viewQuotesButton.TabIndex = 6;
             this.viewQuotesButton.Text = "View Quotes";
             this.viewQuotesButton.UseVisualStyleBackColor = true;
@@ -82,10 +82,10 @@
             // 
             // newQuoteButton
             // 
-            this.newQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newQuoteButton.Location = new System.Drawing.Point(44, 47);
+            this.newQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newQuoteButton.Location = new System.Drawing.Point(57, 27);
             this.newQuoteButton.Name = "newQuoteButton";
-            this.newQuoteButton.Size = new System.Drawing.Size(243, 56);
+            this.newQuoteButton.Size = new System.Drawing.Size(200, 50);
             this.newQuoteButton.TabIndex = 5;
             this.newQuoteButton.Text = "Add New Quote";
             this.newQuoteButton.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(714, 381);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.closeMainMenuButon);
             this.Controls.Add(this.searchQuotesButton);

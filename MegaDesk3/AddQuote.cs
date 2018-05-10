@@ -30,5 +30,35 @@ namespace MegaDesk3
             mainMenu.Show();
             Close();
         }
+
+        private void nameInput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddQuote_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RushDaysLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
