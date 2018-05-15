@@ -1,4 +1,4 @@
-﻿namespace MegaDesk3
+﻿namespace MegaDesk4
 {
     partial class SearchQuotes
     {
