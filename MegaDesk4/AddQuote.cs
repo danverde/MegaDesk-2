@@ -15,6 +15,14 @@ namespace MegaDesk4
         public AddQuote()
         {
             InitializeComponent();
+            var materials = new List<Desk.Surface>();
+
+            materials = Enum.GetValues(typeof(Desk.Surface))
+                .Cast<Desk.Surface>()
+                .ToList();
+
+            //combobox.DataSourse = materials
+            MaterialInput.DataSource = materials;
         }
 
         private void closeAddQuoteButton_Click(object sender, EventArgs e)

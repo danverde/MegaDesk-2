@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.closeAddQuoteButton = new System.Windows.Forms.Button();
             this.saveNewQuoteButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -39,14 +40,18 @@
             this.WidthInput = new System.Windows.Forms.NumericUpDown();
             this.MaterialLabel = new System.Windows.Forms.Label();
             this.MaterialInput = new System.Windows.Forms.ComboBox();
+            this.surfaceBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.RushDaysLabel = new System.Windows.Forms.Label();
             this.RushOrderInput = new System.Windows.Forms.ComboBox();
             this.NumDrawersLabel = new System.Windows.Forms.Label();
             this.NumDrawersInput = new System.Windows.Forms.NumericUpDown();
+            this.surfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DimensionsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DepthInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surfaceBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumDrawersInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surfaceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // closeAddQuoteButton
@@ -80,7 +85,6 @@
             this.nameLabel.Size = new System.Drawing.Size(147, 24);
             this.nameLabel.TabIndex = 11;
             this.nameLabel.Text = "Customer Name";
-            this.nameLabel.Click += new System.EventHandler(this.nameLabel_Click);
             // 
             // customerNameInput
             // 
@@ -181,19 +185,17 @@
             // 
             // MaterialInput
             // 
-            this.MaterialInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            // this.MaterialInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MaterialInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaterialInput.FormattingEnabled = true;
-            this.MaterialInput.Items.AddRange(new object[] {
-            "Laminate",
-            "Oak",
-            "Pine",
-            "Rosewood",
-            "Veneer"});
             this.MaterialInput.Location = new System.Drawing.Point(197, 88);
             this.MaterialInput.Name = "MaterialInput";
             this.MaterialInput.Size = new System.Drawing.Size(228, 32);
             this.MaterialInput.TabIndex = 2;
+            // 
+            // surfaceBindingSource1
+            // 
+            this.surfaceBindingSource1.DataSource = typeof(MegaDesk4.Desk.Surface);
             // 
             // RushDaysLabel
             // 
@@ -249,6 +251,10 @@
             0,
             0});
             // 
+            // surfaceBindingSource
+            // 
+            this.surfaceBindingSource.DataSource = typeof(MegaDesk4.Desk.Surface);
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,7 +279,9 @@
             this.DimensionsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DepthInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surfaceBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumDrawersInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.surfaceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,5 +304,7 @@
         private System.Windows.Forms.ComboBox RushOrderInput;
         private System.Windows.Forms.Label NumDrawersLabel;
         private System.Windows.Forms.NumericUpDown NumDrawersInput;
+        private System.Windows.Forms.BindingSource surfaceBindingSource;
+        private System.Windows.Forms.BindingSource surfaceBindingSource1;
     }
 }
