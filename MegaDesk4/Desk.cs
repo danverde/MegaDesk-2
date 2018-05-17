@@ -23,6 +23,6 @@ namespace MegaDesk4
 
         public int NumDrawers { get; set; }
 
-
+        public string Material { get; set; }
     }
 }

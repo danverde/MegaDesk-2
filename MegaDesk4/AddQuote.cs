@@ -21,7 +21,6 @@ namespace MegaDesk4
                 .Cast<Desk.Surface>()
                 .ToList();
 
-            //combobox.DataSourse = materials
             MaterialInput.DataSource = materials;
         }
 
@@ -34,6 +33,17 @@ namespace MegaDesk4
 
         private void saveNewQuoteButton_Click(object sender, EventArgs e)
         {
+            Desk newDesk = new Desk();
+
+            // ADD VALIDATION!?
+            newDesk.Depth = DepthInput.Value;
+            newDesk.Width = WidthInput.Value;
+            newDesk.NumDrawers = (int)NumDrawersInput.Value;
+            newDesk.Material = MaterialInput.Text;
+
+            DeskQuote newQuote = new DeskQuote();
+            newQuote.Desk = newDesk;
+
             MainMenu mainMenu = (MainMenu)Tag;
             mainMenu.Show();
             Close();
@@ -49,22 +59,7 @@ namespace MegaDesk4
 
         }
 
-        private void nameLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RushDaysLabel_Click(object sender, EventArgs e)
         {
 
         }
@@ -74,11 +69,6 @@ namespace MegaDesk4
             MainMenu mainMenu = (MainMenu)Tag;
             mainMenu.Show();
             mainMenu.Show();
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

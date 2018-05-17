@@ -139,7 +139,6 @@
             this.DepthLabel.Size = new System.Drawing.Size(60, 24);
             this.DepthLabel.TabIndex = 2;
             this.DepthLabel.Text = "Depth";
-            this.DepthLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // WidthLabel
             // 
@@ -193,10 +192,6 @@
             this.MaterialInput.Size = new System.Drawing.Size(228, 32);
             this.MaterialInput.TabIndex = 2;
             // 
-            // surfaceBindingSource1
-            // 
-            this.surfaceBindingSource1.DataSource = typeof(MegaDesk4.Desk.Surface);
-            // 
             // RushDaysLabel
             // 
             this.RushDaysLabel.AutoSize = true;
@@ -206,7 +201,6 @@
             this.RushDaysLabel.Size = new System.Drawing.Size(108, 24);
             this.RushDaysLabel.TabIndex = 17;
             this.RushDaysLabel.Text = "Rush Order";
-            this.RushDaysLabel.Click += new System.EventHandler(this.RushDaysLabel_Click);
             // 
             // RushOrderInput
             // 
@@ -231,7 +225,6 @@
             this.NumDrawersLabel.Size = new System.Drawing.Size(79, 24);
             this.NumDrawersLabel.TabIndex = 18;
             this.NumDrawersLabel.Text = "Drawers";
-            this.NumDrawersLabel.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // NumDrawersInput
             // 
@@ -250,10 +243,6 @@
             0,
             0,
             0});
-            // 
-            // surfaceBindingSource
-            // 
-            this.surfaceBindingSource.DataSource = typeof(MegaDesk4.Desk.Surface);
             // 
             // AddQuote
             // 
