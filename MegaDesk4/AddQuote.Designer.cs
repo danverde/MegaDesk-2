@@ -46,6 +46,7 @@
             this.NumDrawersLabel = new System.Windows.Forms.Label();
             this.NumDrawersInput = new System.Windows.Forms.NumericUpDown();
             this.surfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Message = new System.Windows.Forms.Label();
             this.DimensionsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DepthInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthInput)).BeginInit();
@@ -57,7 +58,7 @@
             // closeAddQuoteButton
             // 
             this.closeAddQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeAddQuoteButton.Location = new System.Drawing.Point(274, 277);
+            this.closeAddQuoteButton.Location = new System.Drawing.Point(297, 428);
             this.closeAddQuoteButton.Name = "closeAddQuoteButton";
             this.closeAddQuoteButton.Size = new System.Drawing.Size(100, 40);
             this.closeAddQuoteButton.TabIndex = 9;
@@ -68,7 +69,7 @@
             // saveNewQuoteButton
             // 
             this.saveNewQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveNewQuoteButton.Location = new System.Drawing.Point(405, 277);
+            this.saveNewQuoteButton.Location = new System.Drawing.Point(428, 428);
             this.saveNewQuoteButton.Name = "saveNewQuoteButton";
             this.saveNewQuoteButton.Size = new System.Drawing.Size(100, 40);
             this.saveNewQuoteButton.TabIndex = 8;
@@ -93,7 +94,6 @@
             this.customerNameInput.Name = "customerNameInput";
             this.customerNameInput.Size = new System.Drawing.Size(228, 29);
             this.customerNameInput.TabIndex = 1;
-            this.customerNameInput.TextChanged += new System.EventHandler(this.nameInput_TextChanged);
             // 
             // DimensionsGroup
             // 
@@ -170,7 +170,6 @@
             0,
             0,
             0});
-            this.WidthInput.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // MaterialLabel
             // 
@@ -184,7 +183,6 @@
             // 
             // MaterialInput
             // 
-            // this.MaterialInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MaterialInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaterialInput.FormattingEnabled = true;
             this.MaterialInput.Location = new System.Drawing.Point(197, 88);
@@ -244,11 +242,21 @@
             0,
             0});
             // 
+            // Message
+            // 
+            this.Message.AutoSize = true;
+            this.Message.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Message.Location = new System.Drawing.Point(270, 261);
+            this.Message.Name = "Message";
+            this.Message.Size = new System.Drawing.Size(0, 24);
+            this.Message.TabIndex = 19;
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 366);
+            this.ClientSize = new System.Drawing.Size(554, 489);
+            this.Controls.Add(this.Message);
             this.Controls.Add(this.NumDrawersInput);
             this.Controls.Add(this.NumDrawersLabel);
             this.Controls.Add(this.RushOrderInput);
@@ -295,5 +303,6 @@
         private System.Windows.Forms.NumericUpDown NumDrawersInput;
         private System.Windows.Forms.BindingSource surfaceBindingSource;
         private System.Windows.Forms.BindingSource surfaceBindingSource1;
+        private System.Windows.Forms.Label Message;
     }
 }

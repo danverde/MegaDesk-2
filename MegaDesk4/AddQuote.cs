@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,11 +17,17 @@ namespace MegaDesk4
         {
             InitializeComponent();
             var materials = new List<Desk.Surface>();
+            var delivery = new List<DeskQuote.Delivery>();
 
             materials = Enum.GetValues(typeof(Desk.Surface))
                 .Cast<Desk.Surface>()
                 .ToList();
 
+            delivery = Enum.GetValues(typeof(DeskQuote.Delivery))
+                .Cast<DeskQuote.Delivery>()
+                .ToList();
+
+            RushOrderInput.DataSource = delivery;
             MaterialInput.DataSource = materials;
         }
 
@@ -33,33 +40,28 @@ namespace MegaDesk4
 
         private void saveNewQuoteButton_Click(object sender, EventArgs e)
         {
-            Desk newDesk = new Desk();
-
+            // it seems to me that most of this should be done in the constructor
             // ADD VALIDATION!?
-            newDesk.Depth = DepthInput.Value;
-            newDesk.Width = WidthInput.Value;
-            newDesk.NumDrawers = (int)NumDrawersInput.Value;
-            newDesk.Material = MaterialInput.Text;
+            Desk newDesk = new Desk
+            {
+                Depth = DepthInput.Value,
+                Width = WidthInput.Value,
+                NumDrawers = (int)NumDrawersInput.Value,
+                SurfaceMaterial = MaterialInput.Text
+            };
 
             DeskQuote newQuote = new DeskQuote();
             newQuote.Desk = newDesk;
+            newQuote.Price = newQuote.CalcQuote();
+            newQuote.OrderDate = new DateTime().Date;
 
-            MainMenu mainMenu = (MainMenu)Tag;
-            mainMenu.Show();
-            Close();
-        }
+            SaveQuote(newQuote);
 
-        private void nameInput_TextChanged(object sender, EventArgs e)
-        {
-
+            saveNewQuoteButton.Visible = false;
+            // hide save button!
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
         }
@@ -69,6 +71,31 @@ namespace MegaDesk4
             MainMenu mainMenu = (MainMenu)Tag;
             mainMenu.Show();
             mainMenu.Show();
+        }
+
+        private void SaveQuote(DeskQuote quote)
+        {
+            // @"" means you don't have to escape \ characters in the string
+            string fileName = "quotes.csv";
+            
+            if (File.Exists(fileName))
+            {
+                try
+                {
+                    string quoteString = $"{quote.OrderDate},{quote.CustomerName},{quote.Price},{quote.DeliveryTime}\n";
+                    File.AppendAllText(fileName, quoteString);
+                    Message.Text = $"Price: {quote.Price}";
+                }
+                catch (Exception Err)
+                {
+                    Message.Text = Err.Message;
+                    // save err message
+                }
+            }
+            else
+            {
+                Message.Text = $"Unable to find {fileName}";
+            }
         }
     }
 }
