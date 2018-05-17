@@ -40,8 +40,8 @@ namespace MegaDesk4
 
         private void saveNewQuoteButton_Click(object sender, EventArgs e)
         {
-            // it seems to me that most of this should be done in the constructor
-            // ADD VALIDATION!?
+            // it seems to me that most of this should be done in the constructor...
+            // ADD VALIDATION!
             Desk newDesk = new Desk
             {
                 Depth = DepthInput.Value,
@@ -50,15 +50,21 @@ namespace MegaDesk4
                 SurfaceMaterial = MaterialInput.Text
             };
 
-            DeskQuote newQuote = new DeskQuote();
-            newQuote.Desk = newDesk;
+            DeskQuote newQuote = new DeskQuote
+            {
+                Desk = newDesk,
+                CustomerName = customerNameInput.Text,
+                DeliveryTime = (int)RushOrderInput.SelectedValue,
+                OrderDate = DateTime.Now
+            };
             newQuote.Price = newQuote.CalcQuote();
-            newQuote.OrderDate = new DateTime().Date;
 
+            // Save to quotes.csv
             SaveQuote(newQuote);
 
+            // Make the UI make sense
             saveNewQuoteButton.Visible = false;
-            // hide save button!
+            closeAddQuoteButton.Text = "Close";
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
@@ -82,7 +88,14 @@ namespace MegaDesk4
             {
                 try
                 {
-                    string quoteString = $"{quote.OrderDate},{quote.CustomerName},{quote.Price},{quote.DeliveryTime}\n";
+                    string quoteString = $"{quote.OrderDate}," +
+                        $"{quote.CustomerName}," +
+                        $"{quote.Price}," +
+                        $"{quote.DeliveryTime}," +
+                        $"{quote.Desk.SurfaceMaterial}," +
+                        $"{quote.Desk.NumDrawers}," +
+                        $"{quote.Desk.Width}," +
+                        $"{quote.Desk.Depth}\n";
                     File.AppendAllText(fileName, quoteString);
                     Message.Text = $"Price: {quote.Price}";
                 }

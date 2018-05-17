@@ -236,11 +236,6 @@
             this.NumDrawersInput.Name = "NumDrawersInput";
             this.NumDrawersInput.Size = new System.Drawing.Size(77, 29);
             this.NumDrawersInput.TabIndex = 7;
-            this.NumDrawersInput.Value = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
             // 
             // Message
             // 
