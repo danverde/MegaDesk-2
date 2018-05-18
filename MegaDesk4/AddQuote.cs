@@ -47,17 +47,12 @@ namespace MegaDesk4
                 Depth = DepthInput.Value,
                 Width = WidthInput.Value,
                 NumDrawers = (int)NumDrawersInput.Value,
-                SurfaceMaterial = MaterialInput.Text
+                SurfaceMaterial = (int)((Desk.Surface)MaterialInput.SelectedValue)
             };
 
-            DeskQuote newQuote = new DeskQuote
-            {
-                Desk = newDesk,
-                CustomerName = customerNameInput.Text,
-                DeliveryTime = (int)RushOrderInput.SelectedValue,
-                OrderDate = DateTime.Now
-            };
-            newQuote.Price = newQuote.CalcQuote();
+            int deliveryTime = (int)((DeskQuote.Delivery)RushOrderInput.SelectedValue);
+
+            DeskQuote newQuote = new DeskQuote(newDesk, customerNameInput.Text, deliveryTime, DateTime.Now);
 
             // Save to quotes.csv
             SaveQuote(newQuote);
@@ -102,7 +97,6 @@ namespace MegaDesk4
                 catch (Exception Err)
                 {
                     Message.Text = Err.Message;
-                    // save err message
                 }
             }
             else

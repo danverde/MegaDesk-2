@@ -183,6 +183,7 @@
             // 
             // MaterialInput
             // 
+            this.MaterialInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MaterialInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaterialInput.FormattingEnabled = true;
             this.MaterialInput.Location = new System.Drawing.Point(197, 88);

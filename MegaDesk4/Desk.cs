@@ -10,11 +10,11 @@ namespace MegaDesk4
     {
         public enum Surface
         {
-            Laminate,
-            Oak,
-            Pine,
-            Rosewood,
-            Veneer
+            Laminate = 100,
+            Oak = 200,
+            Pine = 50,
+            Rosewood = 300,
+            Veneer = 125
         }
 
         public decimal Depth { get; set; }
@@ -23,6 +23,6 @@ namespace MegaDesk4
 
         public int NumDrawers { get; set; }
 
-        public string SurfaceMaterial { get; set; }
+        public int SurfaceMaterial { get; set; }
     }
 }
