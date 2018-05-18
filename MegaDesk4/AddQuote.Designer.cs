@@ -267,7 +267,6 @@
             this.Name = "AddQuote";
             this.Text = "Add Quote";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddQuote_FormClosed);
-            this.Load += new System.EventHandler(this.AddQuote_Load);
             this.DimensionsGroup.ResumeLayout(false);
             this.DimensionsGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DepthInput)).EndInit();

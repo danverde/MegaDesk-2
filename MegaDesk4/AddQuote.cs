@@ -40,7 +40,6 @@ namespace MegaDesk4
 
         private void saveNewQuoteButton_Click(object sender, EventArgs e)
         {
-            // it seems to me that most of this should be done in the constructor...
             // ADD VALIDATION!
             Desk newDesk = new Desk
             {
@@ -51,7 +50,6 @@ namespace MegaDesk4
             };
 
             int deliveryTime = (int)((DeskQuote.Delivery)RushOrderInput.SelectedValue);
-
             DeskQuote newQuote = new DeskQuote(newDesk, customerNameInput.Text, deliveryTime, DateTime.Now);
 
             // Save to quotes.csv
@@ -60,11 +58,6 @@ namespace MegaDesk4
             // Make the UI make sense
             saveNewQuoteButton.Visible = false;
             closeAddQuoteButton.Text = "Close";
-        }
-
-        private void AddQuote_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
@@ -92,7 +85,7 @@ namespace MegaDesk4
                         $"{quote.Desk.Width}," +
                         $"{quote.Desk.Depth}\n";
                     File.AppendAllText(fileName, quoteString);
-                    Message.Text = $"Price: {quote.Price}";
+                    Message.Text = $"Price: ${quote.Price}";
                 }
                 catch (Exception Err)
                 {

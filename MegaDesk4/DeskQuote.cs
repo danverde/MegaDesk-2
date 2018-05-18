@@ -50,7 +50,6 @@ namespace MegaDesk4
                 size = 2;
             }
 
-
             // Add cost of drawers
             Price = Desk.NumDrawers * 50;
 
