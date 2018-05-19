@@ -79,7 +79,7 @@ namespace MegaDesk4
                     string quoteString = $"{quote.OrderDate}," +
                         $"{quote.CustomerName}," +
                         $"{quote.Price}," +
-                        $"{quote.DeliveryTime}," +
+                        $"{(DeskQuote.Delivery)quote.DeliveryTime}," +
                         $"{quote.Desk.SurfaceMaterial}," +
                         $"{quote.Desk.NumDrawers}," +
                         $"{quote.Desk.Width}," +
