@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.CloseSearchQuotesButton = new System.Windows.Forms.Button();
-            this.viewAll = new System.Windows.Forms.DataGridView();
+            this.SearchAll = new System.Windows.Forms.DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,10 +38,10 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SearchBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SearchButton = new System.Windows.Forms.Button();
             this.MessageLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.viewAll)).BeginInit();
+            this.SearchBox = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchAll)).BeginInit();
             this.SuspendLayout();
             // 
             // CloseSearchQuotesButton
@@ -55,10 +55,10 @@
             this.CloseSearchQuotesButton.UseVisualStyleBackColor = true;
             this.CloseSearchQuotesButton.Click += new System.EventHandler(this.CloseSearchQuotesButton_Click);
             // 
-            // viewAll
+            // SearchAll
             // 
-            this.viewAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.viewAll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SearchAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SearchAll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column2,
             this.Column1,
             this.Price,
@@ -67,10 +67,10 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            this.viewAll.Location = new System.Drawing.Point(12, 77);
-            this.viewAll.Name = "viewAll";
-            this.viewAll.Size = new System.Drawing.Size(844, 366);
-            this.viewAll.TabIndex = 12;
+            this.SearchAll.Location = new System.Drawing.Point(12, 77);
+            this.SearchAll.Name = "SearchAll";
+            this.SearchAll.Size = new System.Drawing.Size(844, 366);
+            this.SearchAll.TabIndex = 12;
             // 
             // Column2
             // 
@@ -112,23 +112,16 @@
             this.Column7.HeaderText = "Depth";
             this.Column7.Name = "Column7";
             // 
-            // SearchBox
+            // SearchButton
             // 
-            this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBox.Location = new System.Drawing.Point(12, 25);
-            this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(167, 35);
-            this.SearchBox.TabIndex = 13;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(194, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 35);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchButton.Location = new System.Drawing.Point(213, 25);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(106, 35);
+            this.SearchButton.TabIndex = 14;
+            this.SearchButton.Text = "Search";
+            this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // MessageLabel
             // 
@@ -139,20 +132,30 @@
             this.MessageLabel.Size = new System.Drawing.Size(0, 29);
             this.MessageLabel.TabIndex = 15;
             // 
+            // SearchBox
+            // 
+            this.SearchBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBox.FormattingEnabled = true;
+            this.SearchBox.Location = new System.Drawing.Point(12, 23);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(181, 37);
+            this.SearchBox.TabIndex = 16;
+            // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 519);
-            this.Controls.Add(this.MessageLabel);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.SearchBox);
-            this.Controls.Add(this.viewAll);
+            this.Controls.Add(this.MessageLabel);
+            this.Controls.Add(this.SearchButton);
+            this.Controls.Add(this.SearchAll);
             this.Controls.Add(this.CloseSearchQuotesButton);
             this.Name = "SearchQuotes";
             this.Text = "Search Quotes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SearchQuotes_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.viewAll)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SearchAll)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,7 +164,7 @@
         #endregion
 
         private System.Windows.Forms.Button CloseSearchQuotesButton;
-        private System.Windows.Forms.DataGridView viewAll;
+        private System.Windows.Forms.DataGridView SearchAll;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
@@ -170,8 +173,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.TextBox SearchBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Label MessageLabel;
+        private System.Windows.Forms.ComboBox SearchBox;
     }
 }
