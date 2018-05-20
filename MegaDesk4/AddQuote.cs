@@ -80,7 +80,7 @@ namespace MegaDesk4
                         $"{quote.CustomerName}," +
                         $"{quote.Price}," +
                         $"{(DeskQuote.Delivery)quote.DeliveryTime}," +
-                        $"{quote.Desk.SurfaceMaterial}," +
+                        $"{(Desk.Surface)quote.Desk.SurfaceMaterial}," +
                         $"{quote.Desk.NumDrawers}," +
                         $"{quote.Desk.Width}," +
                         $"{quote.Desk.Depth}\n";
