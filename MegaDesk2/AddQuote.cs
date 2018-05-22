@@ -41,6 +41,7 @@ namespace MegaDesk4
         private void saveNewQuoteButton_Click(object sender, EventArgs e)
         {
             // ADD VALIDATION!
+            /* Create the desk object */
             Desk newDesk = new Desk
             {
                 Depth = DepthInput.Value,
@@ -49,13 +50,14 @@ namespace MegaDesk4
                 SurfaceMaterial = (int)((Desk.Surface)MaterialInput.SelectedValue)
             };
 
+            /* Convert Rush order to int so it can be added to the deskQuote object */
             int deliveryTime = (int)((DeskQuote.Delivery)RushOrderInput.SelectedValue);
             DeskQuote newQuote = new DeskQuote(newDesk, customerNameInput.Text, deliveryTime, DateTime.Now);
 
-            // Save to quotes.csv
+            /*Save to quotes.csv */
             SaveQuote(newQuote);
 
-            // Make the UI make sense
+            /* Update the GUI */
             saveNewQuoteButton.Visible = false;
             closeAddQuoteButton.Text = "Close";
         }
@@ -76,6 +78,7 @@ namespace MegaDesk4
             {
                 try
                 {
+                    // Delivery time & Surface material are saved as int's
                     string quoteString = $"{quote.OrderDate}," +
                         $"{quote.CustomerName}," +
                         $"{quote.Price}," +

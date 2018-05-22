@@ -48,6 +48,13 @@ namespace MegaDesk4
             var fileName = "quotes.csv";
             // string[] quotes;
 
+            // INSTRUCTOR SOLUTION
+            // string array of readAllLines
+            // forEach thru string array
+            // string[] arrRow = row.split(new char[] { ','})
+            // Rows.Add(arrRow);
+
+
             if (File.Exists(fileName))
             {
                 try
@@ -56,7 +63,7 @@ namespace MegaDesk4
                     for (int i = 1; i < DeskQuotes.Length; i++)
                     {
                         // this has got to be an awful way to do this...
-                        var quote = DeskQuotes[i].Split(',').ToArray();
+                        string[] quote = DeskQuotes[i].Split(',').ToArray();
                         SearchAll.Rows.Add(quote[0], quote[1], quote[2], quote[3], quote[4], quote[5], quote[6], quote[7]);
                     }
                 }
@@ -71,6 +78,7 @@ namespace MegaDesk4
             }
         }
 
+        // COULD BE  A SELECTED INDEX CHANGE EVENT (of comboBox)
         private void SearchButton_Click(object sender, EventArgs e)
         {
             // get search criteria

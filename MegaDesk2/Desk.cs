@@ -8,6 +8,7 @@ namespace MegaDesk4
 {
     class Desk
     {
+        /* The index is the added cost per surface type */
         public enum Surface
         {
             Laminate = 100,
