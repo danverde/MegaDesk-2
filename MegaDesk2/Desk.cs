@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace MegaDesk4
 {
-    class Desk
+    /* For MegaDesk 2 the Desk class was converted to a struct */
+    struct Desk
     {
-        /* The index is the added cost per surface type */
+        public decimal Depth;
+        public decimal Width;
+        public int NumDrawers;
+        public int SurfaceMaterial;
+
         public enum Surface
         {
             Laminate = 100,
@@ -17,13 +22,5 @@ namespace MegaDesk4
             Rosewood = 300,
             Veneer = 125
         }
-
-        public decimal Depth { get; set; }
-
-        public decimal Width { get; set; }
-
-        public int NumDrawers { get; set; }
-
-        public int SurfaceMaterial { get; set; }
-    }
+    };
 }
