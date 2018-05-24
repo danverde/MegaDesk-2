@@ -13,6 +13,8 @@ namespace MegaDesk4
 {
     public partial class AddQuote : Form
     {
+        private DeskQuote savedQuote;
+
         public AddQuote()
         {
             InitializeComponent();
@@ -31,14 +33,14 @@ namespace MegaDesk4
             MaterialInput.DataSource = materials;
         }
 
-        private void closeAddQuoteButton_Click(object sender, EventArgs e)
+        private void CloseAddQuoteButton_Click(object sender, EventArgs e)
         {
             MainMenu mainMenu = (MainMenu)Tag;
             mainMenu.Show();
             Close();
         }
 
-        private void saveNewQuoteButton_Click(object sender, EventArgs e)
+        private void GetQuoteButton_Click(object sender, EventArgs e)
         {
             // ADD VALIDATION!
             /* Create the desk object */
@@ -52,14 +54,29 @@ namespace MegaDesk4
 
             /* Convert Rush order to int so it can be added to the deskQuote object */
             int deliveryTime = (int)((DeskQuote.Delivery)RushOrderInput.SelectedValue);
-            DeskQuote newQuote = new DeskQuote(newDesk, customerNameInput.Text, deliveryTime, DateTime.Now);
+            try
+            {
+                savedQuote = new DeskQuote(newDesk, customerNameInput.Text, deliveryTime, DateTime.Now);
+                GetQuoteButton.Visible = false;
+                saveQuoteButton.Visible = true;
+            }
+            catch (Exception Err)
+            {
+                Message.Text = Err.Message;
+            }
+        }
 
+        private void SaveQuoteButton_Click(object sender, EventArgs e)
+        {
             /*Save to quotes.csv */
-            SaveQuote(newQuote);
-
-            /* Update the GUI */
-            saveNewQuoteButton.Visible = false;
-            closeAddQuoteButton.Text = "Close";
+            try
+            {
+                SaveQuote(savedQuote);
+            }
+            catch (Exception Err)
+            {
+                Message.Text = Err.Message;
+            }
         }
 
         private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
@@ -72,11 +89,11 @@ namespace MegaDesk4
         private void SaveQuote(DeskQuote quote)
         {
             // @"" means you don't have to escape \ characters in the string
-            string fileName = "quotes.csv";
+            string fileName = @"quotes.csv";
             
-            if (File.Exists(fileName))
+            try
             {
-                try
+                if (File.Exists(fileName))
                 {
                     // Delivery time & Surface material are saved as int's
                     string quoteString = $"{quote.OrderDate}," +
@@ -90,15 +107,16 @@ namespace MegaDesk4
                     File.AppendAllText(fileName, quoteString);
                     Message.Text = $"Price: ${quote.Price}";
                 }
-                catch (Exception Err)
+                else
                 {
-                    Message.Text = Err.Message;
+                    throw new Exception($"Unable to find {fileName}");
                 }
             }
-            else
+            catch (Exception)
             {
-                Message.Text = $"Unable to find {fileName}";
+                throw;
             }
+            
         }
     }
 }

@@ -25,7 +25,14 @@ namespace MegaDesk4
             DeliveryTime = deliveryTime;
             OrderDate = orderDate;
 
-            CalcQuote();
+            try
+            {
+                CalcQuote();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public DateTime OrderDate { get; set; }
@@ -61,13 +68,15 @@ namespace MegaDesk4
                     }
                     return prices;
                 }
+                else
+                {
+                    throw new Exception($"Unable to find {pricingFilename}");
+                }
             }
-             catch (Exception Err)
+             catch (Exception)
             {
-                // IDK what to do here. I don't have access to the forms... awkward...
-                Console.Write(Err.Message);
+                throw;
             }
-            return prices;
         }
 
         private void CalcQuote()
@@ -93,22 +102,29 @@ namespace MegaDesk4
             /* calculate material cost */
             Price += Desk.SurfaceMaterial;
 
-            var prices = GetRushOrder();
-
-            /* add rush delivery fee if applicable */
-            switch(DeliveryTime)
+            try
             {
-                case 3:
-                    rushFee = prices[0][size];
-                    break;
+                var prices = GetRushOrder();
 
-                case 5:
-                    rushFee = prices[1][size];
-                    break;
+                /* add rush delivery fee if applicable */
+                switch (DeliveryTime)
+                {
+                    case 3:
+                        rushFee = prices[0][size];
+                        break;
 
-                case 7:
-                    rushFee = prices[2][size];
-                    break;
+                    case 5:
+                        rushFee = prices[1][size];
+                        break;
+
+                    case 7:
+                        rushFee = prices[2][size];
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
 
             Price += rushFee;

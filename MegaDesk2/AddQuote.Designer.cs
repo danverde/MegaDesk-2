@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.closeAddQuoteButton = new System.Windows.Forms.Button();
-            this.saveNewQuoteButton = new System.Windows.Forms.Button();
+            this.saveQuoteButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
             this.customerNameInput = new System.Windows.Forms.TextBox();
             this.DimensionsGroup = new System.Windows.Forms.GroupBox();
@@ -47,6 +47,7 @@
             this.NumDrawersInput = new System.Windows.Forms.NumericUpDown();
             this.surfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Message = new System.Windows.Forms.Label();
+            this.GetQuoteButton = new System.Windows.Forms.Button();
             this.DimensionsGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DepthInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthInput)).BeginInit();
@@ -58,24 +59,25 @@
             // closeAddQuoteButton
             // 
             this.closeAddQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeAddQuoteButton.Location = new System.Drawing.Point(297, 428);
+            this.closeAddQuoteButton.Location = new System.Drawing.Point(273, 361);
             this.closeAddQuoteButton.Name = "closeAddQuoteButton";
             this.closeAddQuoteButton.Size = new System.Drawing.Size(100, 40);
             this.closeAddQuoteButton.TabIndex = 9;
             this.closeAddQuoteButton.Text = "Cancel";
             this.closeAddQuoteButton.UseVisualStyleBackColor = true;
-            this.closeAddQuoteButton.Click += new System.EventHandler(this.closeAddQuoteButton_Click);
+            this.closeAddQuoteButton.Click += new System.EventHandler(this.CloseAddQuoteButton_Click);
             // 
-            // saveNewQuoteButton
+            // saveQuoteButton
             // 
-            this.saveNewQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveNewQuoteButton.Location = new System.Drawing.Point(428, 428);
-            this.saveNewQuoteButton.Name = "saveNewQuoteButton";
-            this.saveNewQuoteButton.Size = new System.Drawing.Size(100, 40);
-            this.saveNewQuoteButton.TabIndex = 8;
-            this.saveNewQuoteButton.Text = "Save";
-            this.saveNewQuoteButton.UseVisualStyleBackColor = true;
-            this.saveNewQuoteButton.Click += new System.EventHandler(this.saveNewQuoteButton_Click);
+            this.saveQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveQuoteButton.Location = new System.Drawing.Point(383, 361);
+            this.saveQuoteButton.Name = "saveQuoteButton";
+            this.saveQuoteButton.Size = new System.Drawing.Size(121, 40);
+            this.saveQuoteButton.TabIndex = 8;
+            this.saveQuoteButton.Text = "Save Quote";
+            this.saveQuoteButton.UseVisualStyleBackColor = true;
+            this.saveQuoteButton.Visible = false;
+            this.saveQuoteButton.Click += new System.EventHandler(this.SaveQuoteButton_Click);
             // 
             // nameLabel
             // 
@@ -102,7 +104,7 @@
             this.DimensionsGroup.Controls.Add(this.WidthLabel);
             this.DimensionsGroup.Controls.Add(this.WidthInput);
             this.DimensionsGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DimensionsGroup.Location = new System.Drawing.Point(42, 165);
+            this.DimensionsGroup.Location = new System.Drawing.Point(41, 91);
             this.DimensionsGroup.Name = "DimensionsGroup";
             this.DimensionsGroup.Size = new System.Drawing.Size(212, 152);
             this.DimensionsGroup.TabIndex = 3;
@@ -175,7 +177,7 @@
             // 
             this.MaterialLabel.AutoSize = true;
             this.MaterialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaterialLabel.Location = new System.Drawing.Point(37, 90);
+            this.MaterialLabel.Location = new System.Drawing.Point(269, 194);
             this.MaterialLabel.Name = "MaterialLabel";
             this.MaterialLabel.Size = new System.Drawing.Size(75, 24);
             this.MaterialLabel.TabIndex = 15;
@@ -186,16 +188,16 @@
             this.MaterialInput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.MaterialInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaterialInput.FormattingEnabled = true;
-            this.MaterialInput.Location = new System.Drawing.Point(197, 88);
+            this.MaterialInput.Location = new System.Drawing.Point(350, 187);
             this.MaterialInput.Name = "MaterialInput";
-            this.MaterialInput.Size = new System.Drawing.Size(228, 32);
+            this.MaterialInput.Size = new System.Drawing.Size(154, 32);
             this.MaterialInput.TabIndex = 2;
             // 
             // RushDaysLabel
             // 
             this.RushDaysLabel.AutoSize = true;
             this.RushDaysLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RushDaysLabel.Location = new System.Drawing.Point(270, 165);
+            this.RushDaysLabel.Location = new System.Drawing.Point(269, 91);
             this.RushDaysLabel.Name = "RushDaysLabel";
             this.RushDaysLabel.Size = new System.Drawing.Size(108, 24);
             this.RushDaysLabel.TabIndex = 17;
@@ -210,7 +212,7 @@
             "3",
             "5",
             "7"});
-            this.RushOrderInput.Location = new System.Drawing.Point(384, 162);
+            this.RushOrderInput.Location = new System.Drawing.Point(383, 88);
             this.RushOrderInput.Name = "RushOrderInput";
             this.RushOrderInput.Size = new System.Drawing.Size(121, 32);
             this.RushOrderInput.TabIndex = 6;
@@ -219,7 +221,7 @@
             // 
             this.NumDrawersLabel.AutoSize = true;
             this.NumDrawersLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumDrawersLabel.Location = new System.Drawing.Point(270, 214);
+            this.NumDrawersLabel.Location = new System.Drawing.Point(269, 140);
             this.NumDrawersLabel.Name = "NumDrawersLabel";
             this.NumDrawersLabel.Size = new System.Drawing.Size(79, 24);
             this.NumDrawersLabel.TabIndex = 18;
@@ -228,7 +230,7 @@
             // NumDrawersInput
             // 
             this.NumDrawersInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumDrawersInput.Location = new System.Drawing.Point(428, 214);
+            this.NumDrawersInput.Location = new System.Drawing.Point(427, 140);
             this.NumDrawersInput.Maximum = new decimal(new int[] {
             12,
             0,
@@ -242,16 +244,29 @@
             // 
             this.Message.AutoSize = true;
             this.Message.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Message.Location = new System.Drawing.Point(270, 261);
+            this.Message.Location = new System.Drawing.Point(37, 268);
+            this.Message.MaximumSize = new System.Drawing.Size(400, 0);
             this.Message.Name = "Message";
             this.Message.Size = new System.Drawing.Size(0, 24);
             this.Message.TabIndex = 19;
+            // 
+            // GetQuoteButton
+            // 
+            this.GetQuoteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GetQuoteButton.Location = new System.Drawing.Point(383, 361);
+            this.GetQuoteButton.Name = "GetQuoteButton";
+            this.GetQuoteButton.Size = new System.Drawing.Size(121, 40);
+            this.GetQuoteButton.TabIndex = 20;
+            this.GetQuoteButton.Text = "Get Quote";
+            this.GetQuoteButton.UseVisualStyleBackColor = true;
+            this.GetQuoteButton.Click += new System.EventHandler(this.GetQuoteButton_Click);
             // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 489);
+            this.ClientSize = new System.Drawing.Size(546, 425);
+            this.Controls.Add(this.GetQuoteButton);
             this.Controls.Add(this.Message);
             this.Controls.Add(this.NumDrawersInput);
             this.Controls.Add(this.NumDrawersLabel);
@@ -262,7 +277,7 @@
             this.Controls.Add(this.DimensionsGroup);
             this.Controls.Add(this.customerNameInput);
             this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.saveNewQuoteButton);
+            this.Controls.Add(this.saveQuoteButton);
             this.Controls.Add(this.closeAddQuoteButton);
             this.Name = "AddQuote";
             this.Text = "Add Quote";
@@ -282,7 +297,7 @@
         #endregion
 
         private System.Windows.Forms.Button closeAddQuoteButton;
-        private System.Windows.Forms.Button saveNewQuoteButton;
+        private System.Windows.Forms.Button saveQuoteButton;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox customerNameInput;
         private System.Windows.Forms.GroupBox DimensionsGroup;
@@ -299,5 +314,6 @@
         private System.Windows.Forms.BindingSource surfaceBindingSource;
         private System.Windows.Forms.BindingSource surfaceBindingSource1;
         private System.Windows.Forms.Label Message;
+        private System.Windows.Forms.Button GetQuoteButton;
     }
 }
