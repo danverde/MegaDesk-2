@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,39 @@ namespace MegaDesk4
 
         public Desk Desk { get; set; }
 
-        public void CalcQuote()
+        private List<List<int>> GetRushOrder()
+        {
+            List<List<int>> prices = new List<List<int>>();
+            try
+             {
+                string pricingFilename = "rushOrderPrices.txt";
+
+                if (File.Exists(pricingFilename))
+                {
+                    string[] lines = File.ReadAllLines(pricingFilename);
+
+                    var i = 0;
+                    for (var r = 0; r < 3; r++)
+                    {
+                    prices.Insert(r, new List<int>());
+                        for (var c = 0; c < 3; c++)
+                        {
+                            prices[r].Insert(c, Int32.Parse(lines[i]));
+                            ++i;
+                        }
+                    }
+                    return prices;
+                }
+            }
+             catch (Exception Err)
+            {
+                // IDK what to do here. I don't have access to the forms... awkward...
+                Console.Write(Err.Message);
+            }
+            return prices;
+        }
+
+        private void CalcQuote()
         {
             /* calcualte surface area */
             decimal surfaceArea = Desk.Depth * Desk.Width;
@@ -60,19 +93,21 @@ namespace MegaDesk4
             /* calculate material cost */
             Price += Desk.SurfaceMaterial;
 
+            var prices = GetRushOrder();
+
             /* add rush delivery fee if applicable */
             switch(DeliveryTime)
             {
                 case 3:
-                    rushFee = 60 + (10 * size);
+                    rushFee = prices[0][size];
                     break;
 
                 case 5:
-                    rushFee = 40 + (10 * size);
+                    rushFee = prices[1][size];
                     break;
 
                 case 7:
-                    rushFee = 30 + (5 * size);
+                    rushFee = prices[2][size];
                     break;
             }
 
