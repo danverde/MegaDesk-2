@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,7 +46,7 @@ namespace MegaDesk4
         // this is a copy of the code from viewAllQuote
         private void ReadQuotes()
         {
-            var fileName = "quotes.csv";
+            var fileName = @"C:\Users\ahmad\source\repos\MegaDesk-2\MegaDesk2\quotes.json";
             // string[] quotes;
 
             // INSTRUCTOR SOLUTION
@@ -59,13 +60,95 @@ namespace MegaDesk4
             {
                 try
                 {
-                    DeskQuotes = File.ReadAllLines(fileName);
-                    for (int i = 1; i < DeskQuotes.Length; i++)
+                    var quotes = File.ReadAllLines(fileName);  //....Storing the lines in a string[]
+                    var quoteList = new List<string>(quotes);  //....Truning it into a list
+                    /*
+                     * Here I am using a Data Table that can be easily loaded into the dataGridView
+                     * It starts by creating the columns then the rows and adding everything to the table 
+                     */
+                    //Creating a table
+                    DataTable table = new DataTable();
+
+
+                    //Setting up the column, row and view
+                    DataColumn column;
+                    DataRow row;
+                    //DataView view;
+
+                    //Creating individual columns
+                    //Name column
+                    column = new DataColumn();       //....................................Creating a column object
+                    column.DataType = System.Type.GetType("System.String"); //.............Setting the data type
+                    column.ColumnName = "Name";     //.....................................Giving the column a name
+                    table.Columns.Add(column);      //.....................................Finally Adding the column to the table
+
+                    //Width
+                    column = new DataColumn();
+                    column.DataType = System.Type.GetType("System.Int32");
+                    column.ColumnName = "Width";
+                    table.Columns.Add(column);
+
+                    //Depth
+                    column = new DataColumn();
+                    column.DataType = System.Type.GetType("System.Int32");
+                    column.ColumnName = "Depth";
+                    table.Columns.Add(column);
+
+                    //Drawers
+                    column = new DataColumn();
+                    column.DataType = System.Type.GetType("System.Int32");
+                    column.ColumnName = "Drawers";
+                    table.Columns.Add(column);
+
+                    //Material
+                    column = new DataColumn();
+                    column.DataType = System.Type.GetType("System.String");
+                    column.ColumnName = "Material";
+                    table.Columns.Add(column);
+
+                    //Order
+                    column = new DataColumn();
+                    column.DataType = System.Type.GetType("System.String");
+                    column.ColumnName = "Order";
+                    table.Columns.Add(column);
+
+                    //Date
+                    column = new DataColumn();
+                    column.DataType = System.Type.GetType("System.DateTime");
+                    column.ColumnName = "Date";
+                    table.Columns.Add(column);
+
+                    //Total Price
+                    column = new DataColumn();
+                    column.DataType = System.Type.GetType("System.String");
+                    column.ColumnName = "Total";
+                    table.Columns.Add(column);
+
+                    // remove all rows
+                    foreach (string quote in quoteList)
                     {
-                        // this has got to be an awful way to do this...
-                        string[] quote = DeskQuotes[i].Split(',').ToArray();
-                        SearchAll.Rows.Add(quote[0], quote[1], quote[2], quote[3], quote[4], quote[5], quote[6], quote[7]);
+                        //Every item in the list will be deserialized into a QuoteData object
+                        QuoteData json = JsonConvert.DeserializeObject<QuoteData>(quote);
+                        // get search criteria
+                        var searchMaterial = (Desk.Surface)SearchBox.SelectedValue;
+                        var searchStuff = searchMaterial.ToString();
+                        if (json.Material == searchStuff)
+                        {
+                            //Them added as a row in the DataTable
+                            row = table.NewRow();
+                            row["Name"] = json.Name;
+                            row["Width"] = json.Width;
+                            row["Depth"] = json.Depth;
+                            row["Drawers"] = json.Drawers;
+                            row["Material"] = json.Material;
+                            row["Order"] = json.Order;
+                            row["Date"] = json.Date;
+                            row["Total"] = json.Total + "$";
+                            table.Rows.Add(row);
+                        }
                     }
+                    SearchAll.DataSource = table;
+
                 }
                 catch (Exception Err)
                 {
@@ -81,23 +164,7 @@ namespace MegaDesk4
         // COULD BE  A SELECTED INDEX CHANGE EVENT (of comboBox)
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            // get search criteria
-            var searchMaterial = (Desk.Surface)SearchBox.SelectedValue;
-            var searchStuff = searchMaterial.ToString();
-
-            // remove all rows
-            SearchAll.Rows.Clear();
-
-            // add matching rows
-            for (int i = 1; i < DeskQuotes.Length; i++)
-            {
-                var quote = DeskQuotes[i].Split(',').ToArray();
-                if (quote[4] == searchStuff)
-                {
-                    SearchAll.Rows.Add(quote[0], quote[1], quote[2], quote[3], quote[4], quote[5], quote[6], quote[7]);
-                }
-                
-            }
+            ReadQuotes();
         }
     }
 }

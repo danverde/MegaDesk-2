@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -89,22 +91,34 @@ namespace MegaDesk4
         private void SaveQuote(DeskQuote quote)
         {
             // @"" means you don't have to escape \ characters in the string
-            string fileName = @"quotes.csv";
+            string fileName = @"C:\Users\ahmad\source\repos\MegaDesk-2\MegaDesk2\quotes.json";
             
             try
             {
                 if (File.Exists(fileName))
                 {
-                    // Delivery time & Surface material are saved as int's
-                    string quoteString = $"{quote.OrderDate}," +
-                        $"{quote.CustomerName}," +
-                        $"{quote.Price}," +
-                        $"{(DeskQuote.Delivery)quote.DeliveryTime}," +
-                        $"{(Desk.Surface)quote.Desk.SurfaceMaterial}," +
-                        $"{quote.Desk.NumDrawers}," +
-                        $"{quote.Desk.Width}," +
-                        $"{quote.Desk.Depth}\n";
-                    File.AppendAllText(fileName, quoteString);
+                    //Creating an object to store the data in
+                    QuoteData jsonData = new QuoteData();
+                    
+                    //Storing the data
+                    jsonData.Date  = quote.OrderDate;
+                    jsonData.Name = quote.CustomerName;
+                    jsonData.Total = (int)quote.Price;
+                    jsonData.Order = (int)((DeskQuote.Delivery)RushOrderInput.SelectedValue);
+                    Desk.Surface mType;
+                    Enum.TryParse<Desk.Surface>(MaterialInput.SelectedValue.ToString(), out mType);
+                    jsonData.Material = mType.ToString();
+                    jsonData.Drawers = quote.Desk.NumDrawers;
+                    jsonData.Width = (int)quote.Desk.Width;
+                    jsonData.Depth = (int)quote.Desk.Depth;
+
+
+                    //Serializing the object
+                    string quoteString = JsonConvert.SerializeObject(jsonData);
+
+                    //Writing to the file
+                    File.AppendAllText(fileName, quoteString + Environment.NewLine);
+
                     Message.Text = $"Price: ${quote.Price}";
                 }
                 else
