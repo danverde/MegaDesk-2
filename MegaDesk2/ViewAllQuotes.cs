@@ -35,7 +35,7 @@ namespace MegaDesk4
 
         private void ReadQuotes()
         {
-            var fileName = @"C:\Users\ahmad\source\repos\MegaDesk-2\MegaDesk2\quotes.json";
+            var fileName = @"H:\Documents\S8\CIT 365\MegaDesk-2\MegaDesk2\quotes.json";
 
             if (File.Exists(fileName))
             {
@@ -55,7 +55,7 @@ namespace MegaDesk4
                     //Setting up the column, row and view
                     DataColumn column;
                     DataRow row;
-                    DataView view;
+                    // DataView view;
 
                     //Creating individual columns
                     //Name column

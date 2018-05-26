@@ -14,13 +14,9 @@ namespace MegaDesk4
 {
     public partial class SearchQuotes : Form
     {
-        private String[] DeskQuotes;
-
         public SearchQuotes()
         {
             InitializeComponent();
-            ReadQuotes();
-
             var materials = new List<Desk.Surface>();
 
             materials = Enum.GetValues(typeof(Desk.Surface))
@@ -28,6 +24,8 @@ namespace MegaDesk4
                 .ToList();
 
             SearchBox.DataSource = materials;
+
+            ReadQuotes();
         }
 
         private void CloseSearchQuotesButton_Click(object sender, EventArgs e)
@@ -46,15 +44,7 @@ namespace MegaDesk4
         // this is a copy of the code from viewAllQuote
         private void ReadQuotes()
         {
-            var fileName = @"C:\Users\ahmad\source\repos\MegaDesk-2\MegaDesk2\quotes.json";
-            // string[] quotes;
-
-            // INSTRUCTOR SOLUTION
-            // string array of readAllLines
-            // forEach thru string array
-            // string[] arrRow = row.split(new char[] { ','})
-            // Rows.Add(arrRow);
-
+            var fileName = @"H:\Documents\S8\CIT 365\MegaDesk-2\MegaDesk2\quotes.json";
 
             if (File.Exists(fileName))
             {
@@ -73,7 +63,6 @@ namespace MegaDesk4
                     //Setting up the column, row and view
                     DataColumn column;
                     DataRow row;
-                    //DataView view;
 
                     //Creating individual columns
                     //Name column
@@ -127,7 +116,7 @@ namespace MegaDesk4
                     // remove all rows
                     foreach (string quote in quoteList)
                     {
-                        //Every item in the list will be deserialized into a QuoteData object
+                        // Every item in the list will be deserialized into a QuoteData object
                         QuoteData json = JsonConvert.DeserializeObject<QuoteData>(quote);
                         // get search criteria
                         var searchMaterial = (Desk.Surface)SearchBox.SelectedValue;

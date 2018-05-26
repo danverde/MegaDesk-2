@@ -59,6 +59,7 @@ namespace MegaDesk4
             try
             {
                 savedQuote = new DeskQuote(newDesk, customerNameInput.Text, deliveryTime, DateTime.Now);
+                Message.Text = $"Quote: ${savedQuote.Price}";
                 GetQuoteButton.Visible = false;
                 saveQuoteButton.Visible = true;
             }
@@ -74,6 +75,8 @@ namespace MegaDesk4
             try
             {
                 SaveQuote(savedQuote);
+                saveQuoteButton.Visible = false;
+                closeAddQuoteButton.Text = "Close";
             }
             catch (Exception Err)
             {
@@ -91,7 +94,7 @@ namespace MegaDesk4
         private void SaveQuote(DeskQuote quote)
         {
             // @"" means you don't have to escape \ characters in the string
-            string fileName = @"C:\Users\ahmad\source\repos\MegaDesk-2\MegaDesk2\quotes.json";
+            string fileName = @"H:\Documents\S8\CIT 365\MegaDesk-2\MegaDesk2\quotes.json";
             
             try
             {
@@ -106,7 +109,7 @@ namespace MegaDesk4
                     jsonData.Total = (int)quote.Price;
                     jsonData.Order = (int)((DeskQuote.Delivery)RushOrderInput.SelectedValue);
                     Desk.Surface mType;
-                    Enum.TryParse<Desk.Surface>(MaterialInput.SelectedValue.ToString(), out mType);
+                    Enum.TryParse(MaterialInput.SelectedValue.ToString(), out mType);
                     jsonData.Material = mType.ToString();
                     jsonData.Drawers = quote.Desk.NumDrawers;
                     jsonData.Width = (int)quote.Desk.Width;

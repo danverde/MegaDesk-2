@@ -50,7 +50,7 @@ namespace MegaDesk4
             List<List<int>> prices = new List<List<int>>();
             try
              {
-                string pricingFilename = @"C:\Users\ahmad\source\repos\MegaDesk-2\MegaDesk2\rushOrderPrices.txt";
+                string pricingFilename = @".\rushOrderPrices.txt";
 
                 if (File.Exists(pricingFilename))
                 {
